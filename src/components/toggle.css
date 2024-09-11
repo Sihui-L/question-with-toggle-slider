@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+
+:root {
+    --activeIndex: 0;
+    --optionCount: 2;
+    --borderRadius: 0;
+}
+
+.toggle-container {
+    width: 100%;
+    max-width: 900px;
+    min-width: 288px;
+    height: 80px;
+    margin: 24px auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 100px;
+    border: 2px solid rgba(244, 245, 245, 0.5);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+  
+.toggle-option {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-family: Mulish, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 160%;
+    z-index: 1;
+}
+
+.toggle-option.disabled {
+    cursor: not-allowed;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% / var(--optionCount));
+    height: 100%;
+    background-color: rgba(244, 245, 245, 0.5);
+    border-radius: 100px;
+    transform: translateX(calc(var(--activeIndex) * 100%));
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+
+@media (max-width: 1280px) {
+    .toggle-container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .toggle-container {
+        max-width: 320px;
+        height: auto;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 16px 0;
+        border-radius: 24px;
+    }
+
+    .toggle-slider {
+        width: 100%;
+        height: calc(100% / var(--optionCount));
+        transform: translateY(calc(var(--activeIndex) * 100%));
+        border-radius: var(--borderRadius);
+    }
+
+    .toggle-option {
+        line-height: normal;
+        font-size: 18px;
+        padding: 9.5px 0;
+    }
+}

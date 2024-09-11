@@ -1,0 +1,14 @@
+.question-container {
+  text-align: center;
+  color: white;
+  padding: 72px 15%;
+}
+
+h2 {
+  margin: 0;
+}
+
+.answers-container {
+  margin: 30px auto;
+  padding: 20px;
+}
