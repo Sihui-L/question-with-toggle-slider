@@ -25,6 +25,14 @@ This is a customizable and responsive toggle component built with **React** and 
 
    This will run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## Illustrations
+
+1. Two Toggle Scenario:
+   ![](https://github.com/Sihui-L/question-with-toggle-slider/blob/main/gifs/two-toggle-scenario.gif)
+
+2. Three Toggle Scenario:
+   ![](https://github.com/Sihui-L/question-with-toggle-slider/blob/main/gifs/three-toggle-scenario.gif)
+
 ## Assumptions and Limitations
 
 ### Assumptions
