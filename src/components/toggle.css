@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
 
-:root {
-    --activeIndex: 0;
-    --optionCount: 2;
-    --borderRadius: 0;
-}
-
 .toggle-container {
     width: 100%;
     max-width: 900px;
@@ -22,7 +16,7 @@
     overflow: hidden;
     transition: all 0.3s ease;
 }
-  
+
 .toggle-option {
     flex: 1;
     text-align: center;
@@ -43,15 +37,28 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% / var(--optionCount));
     height: 100%;
     background-color: rgba(244, 245, 245, 0.5);
     border-radius: 100px;
-    transform: translateX(calc(var(--activeIndex) * 100%));
     transition: transform 0.3s ease;
     z-index: 0;
 }
 
+.two-options {
+    width: 50%;
+}
+
+.three-options {
+    width: calc(100% / 3);
+}
+
+.second-option-selected {
+    transform: translateX(100%);
+}
+
+.third-option-selected {
+    transform: translateX(200%);
+}
 
 @media (max-width: 1280px) {
     .toggle-container {
@@ -71,9 +78,32 @@
 
     .toggle-slider {
         width: 100%;
-        height: calc(100% / var(--optionCount));
-        transform: translateY(calc(var(--activeIndex) * 100%));
-        border-radius: var(--borderRadius);
+        border-radius: 24px 24px 0 0;
+    }
+
+    .two-options {
+        height: 50%;
+    }
+
+    .three-options {
+        height: calc(100% / 3);
+    }
+
+    /* Adjusting translateY for vertical slider */
+    .second-option-selected {
+        transform: translateY(100%);
+    }
+
+    .third-option-selected {
+        transform: translateY(200%);
+    }
+
+    .middle-option-selected {
+        border-radius: 0;
+    }
+
+    .last-option-selected {
+        border-radius: 0 0 24px 24px;
     }
 
     .toggle-option {

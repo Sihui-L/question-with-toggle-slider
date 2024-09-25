@@ -29,15 +29,21 @@ const Toggle: React.FC<ToggleProps> = ({ options, optionIndex, correctAnswerInde
 
     // Dynamically set the border-radius of the slider based on the active index
     const getSliderRadius = (): string => {
-      if (activeIndex === 0) return '24px 24px 0 0';
-      else if (activeIndex === 1 && optionCount === 3) return '0';
-      return '0 0 24px 24px';
+      if (activeIndex === 0) return '';
+      else if (activeIndex === 1 && optionCount === 3) return 'middle-option-selected';
+      return 'last-option-selected';
+    }
+
+    const optionSelected = (): string => {
+      if (activeIndex === 1) return 'second-option-selected';
+      if (activeIndex === 2) return 'third-option-selected';
+      return '';
     }
 
     return (
-        <div className='toggle-container' style={{ '--activeIndex': activeIndex, '--optionCount': optionCount, '--borderRadius':  getSliderRadius()} as React.CSSProperties}>
-            <div className="toggle-slider"/>
-              {options.map((answer, index) => (
+        <div className='toggle-container'>
+            <div className={`toggle-slider ${optionCount === 2 ? 'two-options' : 'three-options'} ${optionSelected()} ${getSliderRadius()}`}/> 
+            {options.map((answer, index) => (
                 <div
                     key={answer}
                     className={`toggle-option ${disabled ? 'disabled' : ''}`}
